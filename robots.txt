@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block any admin or utility paths (future-proofing)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.netlify/
+
+# Sitemap location
+Sitemap: https://trashdaymadeeasy.com/sitemap.xml
