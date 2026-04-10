@@ -28,3 +28,6 @@ http://www.trashdaymadeeasy.com/* https://trashdaymadeeasy.com/:splat 301!
 /quote           /contact.html     200
 /start           /contact.html     200
 /video           /faq.html         200
+
+# Fallback — serve index for any unmatched route
+/*               /index.html       200
