@@ -1,3 +1,4 @@
+# Redirect rules — processed by Netlify on deploy
 # www to non-www
 https://www.trashdaymadeeasy.com/* https://trashdaymadeeasy.com/:splat 301!
 http://trashdaymadeeasy.com/* https://trashdaymadeeasy.com/:splat 301!
