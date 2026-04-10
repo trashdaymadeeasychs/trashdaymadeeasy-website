@@ -1,6 +1,3 @@
-[build]
-  publish = "."
-
 # ── Security & SEO headers applied to all pages ──────────────────────
 [[headers]]
   for = "/*"
