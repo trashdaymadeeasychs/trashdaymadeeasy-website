@@ -1,34 +1,28 @@
-# Redirect rules — processed by Netlify on deploy
-# www to non-www
-https://www.trashdaymadeeasy.com/* https://trashdaymadeeasy.com/:splat 301!
-http://trashdaymadeeasy.com/* https://trashdaymadeeasy.com/:splat 301!
-http://www.trashdaymadeeasy.com/* https://trashdaymadeeasy.com/:splat 301!
-
 # Redirect .html URLs to clean URLs (prevents duplicate crawling)
-/index.html      /                 301!
-/services.html   /services         301!
-/communities.html /communities     301!
-/about.html      /about            301!
-/faq.html        /faq              301!
-/contact.html    /contact          301!
+/index.html       /                  301!
+/services.html    /services          301!
+/communities.html /communities       301!
+/about.html       /about             301!
+/faq.html         /faq               301!
+/contact.html     /contact           301!
 
 # Clean URL aliases (no .html in URL)
-/services        /services.html    200
-/communities     /communities.html 200
-/builders        /communities.html 200
-/about           /about.html       200
-/faq             /faq.html         200
-/contact         /contact.html     200
-/pricing         /services.html    200
-/residential     /services.html    200
-/multifamily     /communities.html 200
-/charleston      /index.html       200
-/charleston-sc   /index.html       200
-/atlanta         /communities.html 200
-/atlanta-ga      /communities.html 200
-/quote           /contact.html     200
-/start           /contact.html     200
-/video           /faq.html         200
+/services         /services.html     200
+/communities      /communities.html  200
+/builders         /communities.html  200
+/about            /about.html        200
+/faq              /faq.html          200
+/contact          /contact.html      200
+/pricing          /services.html     200
+/residential      /services.html     200
+/multifamily      /communities.html  200
+/charleston       /index.html        200
+/charleston-sc    /index.html        200
+/atlanta          /communities.html  200
+/atlanta-ga       /communities.html  200
+/quote            /contact.html      200
+/start            /contact.html      200
+/video            /faq.html          200
 
 # Fallback — serve index for any unmatched route
-/*               /index.html       200
+/*                /index.html        200
