@@ -1,6 +1,2 @@
-# Redirect old pages to their replacements
-/services.html    /residential.html   301!
-/communities.html /multifamily.html   301!
-
 # Catch-all fallback
 /*                /index.html         200
