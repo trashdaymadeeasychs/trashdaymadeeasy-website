@@ -81,24 +81,5 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Policy / Legal Pages -->
-  <url>
-    <loc>https://trashdaymadeeasy.com/terms.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://trashdaymadeeasy.com/refund-policy.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://trashdaymadeeasy.com/plan-policy.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 
 </urlset>
