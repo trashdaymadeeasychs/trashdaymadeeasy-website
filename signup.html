@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up for Valet Trash Service | Trash Day Made Easy</title>
+  <meta name="description" content="Sign up for Trash Day Made Easy residential valet trash pickup. Easy, affordable, doorstep service in Charleston, SC and Atlanta, GA." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0d2b45;
+      --navy-deep: #081e30;
+      --navy-mid: #123456;
+      --gold: #f5a623;
+      --gold-light: #fdc55e;
+      --gold-pale: #fff8ec;
+      --white: #ffffff;
+      --gray-100: #f7f8fa;
+      --gray-200: #e8ecf0;
+      --gray-400: #9aa5b4;
+      --gray-600: #5a6a7a;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 8px 40px rgba(13,43,69,0.13);
+      --shadow-card: 0 2px 16px rgba(13,43,69,0.09);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy-deep);
+      color: var(--navy);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      background: var(--navy);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gold);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-badge {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    /* ─── HERO STRIP ──────────────────────────── */
+    .hero-strip {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 56px 32px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(245,166,35,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-strip .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .hero-strip h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero-strip p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .trust-pills {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .trust-pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(245,166,35,0.3);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trust-pill .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ─── MAIN LAYOUT ─────────────────────────── */
+    .page-body {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ─── CARD ────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: var(--gold-pale);
+      border-bottom: 2px solid var(--gold-light);
+      padding: 28px 36px 24px;
+    }
+
+    .card-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .card-header p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    .card-body {
+      padding: 36px;
+    }
+
+    /* ─── FORM ────────────────────────────────── */
+    .form-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .form-row-2 { grid-template-columns: 1fr; }
+      .card-body { padding: 24px 20px; }
+      .card-header { padding: 22px 20px 18px; }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+
+    label .req {
+      color: var(--gold);
+      margin-left: 2px;
+    }
+
+    input, select, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      background: var(--gray-100);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--gray-400); }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(245,166,35,0.12);
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-400);
+      pointer-events: none;
+      font-size: 0.9rem;
+    }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    .hint {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      margin-top: 2px;
+    }
+
+    /* ─── DIVIDER ─────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 8px 0 4px;
+      color: var(--gray-400);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    /* ─── SUBMIT BTN ──────────────────────────── */
+    .btn-submit {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 17px 24px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(13,43,69,0.25);
+    }
+
+    .btn-submit:hover {
+      background: var(--navy-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(13,43,69,0.3);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    .btn-submit svg { flex-shrink: 0; }
+
+    /* ─── SUCCESS STATE ───────────────────────── */
+    #success-panel {
+      display: none;
+      text-align: center;
+      padding: 20px 0 8px;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 32px;
+      box-shadow: 0 8px 24px rgba(245,166,35,0.35);
+    }
+
+    #success-panel h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    #success-panel p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-payment {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 17px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(245,166,35,0.4);
+      transition: transform 0.15s, box-shadow 0.2s;
+      margin-bottom: 18px;
+    }
+
+    .btn-payment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(245,166,35,0.5);
+    }
+
+    .secure-note {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    /* ─── DAY CHECKBOXES ──────────────────────── */
+    .day-checks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .day-checks { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .day-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--gray-100);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: border-color 0.18s, background 0.18s;
+      letter-spacing: 0;
+    }
+
+    .day-label:hover {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    .day-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: var(--gold);
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: 4px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .day-label:has(input:checked) {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    /* ─── FOOTER STRIP ────────────────────────── */
+    .footer-strip {
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-strip a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ─── FADE-IN ─────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-strip, .card {
+      animation: fadeUp 0.55s ease both;
+    }
+
+    .card { animation-delay: 0.15s; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────── -->
+<header>
+  <a href="index.html" class="logo-wrap">
+    <div class="logo-icon">🗑️</div>
+    <div class="logo-text">
+      Trash Day Made Easy
+      <span>Valet Trash &amp; Recycling</span>
+    </div>
+  </a>
+  <div class="header-badge">Charleston SC &amp; Surrounding Areas</div>
+</header>
+
+<!-- ── HERO ────────────────────────────────────── -->
+<div class="hero-strip">
+  <div class="eyebrow">Backdoor or Garage · We Haul It to the Curb</div>
+  <h1>Backdoor-To-Curb Trash Valet Service</h1>
+  <p>Just leave your bins out back — we pick them up, roll them to the curb on collection day, and return them when it's done. No effort, no forgotten trash days, no hassle.</p>
+  <div class="trust-pills">
+    <div class="trust-pill"><span class="dot"></span> No long-term contracts</div>
+    <div class="trust-pill"><span class="dot"></span> Set up in under 2 minutes</div>
+  </div>
+</div>
+
+<!-- ── PAGE BODY ────────────────────────────────── -->
+<div class="page-body">
+  <div class="card">
+
+    <!-- Card Header -->
+    <div class="card-header">
+      <div class="step-badge">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="#f5a623" stroke-width="1"/><path d="M3.5 6l1.8 1.8L8.5 4" stroke="#f5a623" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Step 1 of 2 — Your Info
+      </div>
+      <h2>Let's Get You Set Up</h2>
+      <p>Fill out the short form below, then complete payment to activate your service.</p>
+    </div>
+
+    <!-- Card Body -->
+    <div class="card-body">
+
+      <!-- FORM -->
+      <form id="signup-form" novalidate>
+        <div class="form-grid">
+
+          <div class="form-row-2">
+            <div class="field">
+              <label for="first-name">First Name <span class="req">*</span></label>
+              <input type="text" id="first-name" name="first_name" placeholder="Jane" required autocomplete="given-name" />
+            </div>
+            <div class="field">
+              <label for="last-name">Last Name <span class="req">*</span></label>
+              <input type="text" id="last-name" name="last_name" placeholder="Smith" required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="jane@email.com" required autocomplete="email" />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(843) 555-0100" required autocomplete="tel" />
+          </div>
+
+          <div class="divider">Service Address</div>
+
+          <div class="field">
+            <label for="address">Street Address <span class="req">*</span></label>
+            <input type="text" id="address" name="address" placeholder="123 Palmetto Lane" required autocomplete="street-address" />
+          </div>
+
+          <div class="form-row-2">
+            <div class="field">
+              <label for="city">City <span class="req">*</span></label>
+              <input type="text" id="city" name="city" placeholder="Charleston" required autocomplete="address-level2" />
+            </div>
+            <div class="field">
+              <label for="zip">ZIP Code <span class="req">*</span></label>
+              <input type="text" id="zip" name="zip" placeholder="29403" required autocomplete="postal-code" maxlength="10" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="community">Community / HOA Name</label>
+            <input type="text" id="community" name="community" placeholder="Coosaw Creek, The Reserve…" autocomplete="off" />
+            <span class="hint">Leave blank if not in a community.</span>
+          </div>
+
+          <div class="divider">One More Thing</div>
+
+          <div class="field">
+            <label>What Day is Your Normal Trash / Recycling Day? <span class="req">*</span></label>
+            <div class="day-checks">
+              <label class="day-label"><input type="checkbox" name="trash_day" value="Monday" /> Monday</label>
+              <label class="day-label"><input type="checkbox" name="trash_day" value="Tuesday" /> Tuesday</label>
+              <label class="day-label"><input type="checkbox" name="trash_day" value="Wednesday" /> Wednesday</label>
+              <label class="day-label"><input type="checkbox" name="trash_day" value="Thursday" /> Thursday</label>
+              <label class="day-label"><input type="checkbox" name="trash_day" value="Friday" /> Friday</label>
+              <label class="day-label"><input type="checkbox" name="trash_day" value="Saturday" /> Saturday</label>
+            </div>
+            <span class="hint">Select all that apply — some areas have split trash &amp; recycling days.</span>
+          </div>
+
+          <div class="field">
+            <label for="referral">How did you hear about us?</label>
+            <div class="select-wrap">
+              <select id="referral" name="referral">
+                <option value="" disabled selected>Select one…</option>
+                <option value="neighbor">Neighbor / Friend</option>
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="google">Google Search</option>
+                <option value="community_mgr">Community Manager</option>
+                <option value="nextdoor">Nextdoor</option>
+                <option value="flyer">Door Hanger / Flyer</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Click to Pay $20 Account On-Boarding
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+        </div>
+      </form>
+
+      <!-- SUCCESS PANEL -->
+      <div id="success-panel">
+        <div class="success-icon">✓</div>
+        <h3>You're Almost There!</h3>
+        <p>Your info is saved. Complete your secure payment below to activate doorstep pickup — service typically starts within 1–2 business days.</p>
+
+        <a href="https://buy.stripe.com/bJe8wR3DG1zXghI8fP4ZG00" target="_blank" rel="noopener" class="btn-payment">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="12" rx="2" stroke="#0d2b45" stroke-width="1.7"/><path d="M2 9h16" stroke="#0d2b45" stroke-width="1.7"/><circle cx="6" cy="13" r="1" fill="#0d2b45"/></svg>
+          Click to Pay $20 Account On-Boarding
+        </a>
+
+        <div class="secure-note">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="2.5" y="5.5" width="7" height="5" rx="1" stroke="#9aa5b4" stroke-width="1.1"/><path d="M4 5.5V4a2 2 0 014 0v1.5" stroke="#9aa5b4" stroke-width="1.1"/></svg>
+          Secure checkout · Payments processed safely
+        </div>
+      </div>
+
+    </div><!-- /card-body -->
+  </div><!-- /card -->
+</div><!-- /page-body -->
+
+<!-- ── FOOTER ────────────────────────────────────── -->
+<div class="footer-strip">
+  Questions? <a href="/cdn-cgi/l/email-protection#543c3138383b14202635273c30352d393530313135272d7a373b39"><span class="__cf_email__" data-cfemail="670f020b0b0827131506140f03061e0a0603020206141e4904080a">[email&#160;protected]</span></a> &nbsp;|&nbsp; <a href="https://trashdaymadeeasy.com">← Back to Homepage</a>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const form = document.getElementById('signup-form');
+  const successPanel = document.getElementById('success-panel');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Basic validation highlight
+    let valid = true;
+    const required = form.querySelectorAll('[required]');
+    required.forEach(el => {
+      if (!el.value.trim()) {
+        el.style.borderColor = '#e55';
+        el.focus();
+        valid = false;
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+
+    if (!valid) return;
+
+    // Hide form, show success
+    form.style.display = 'none';
+    successPanel.style.display = 'block';
+    successPanel.style.animation = 'fadeUp 0.45s ease both';
+
+    // Optional: send form data somewhere
+    // const data = new FormData(form);
+    // fetch('/your-endpoint', { method: 'POST', body: data });
+
+ 
