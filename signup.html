@@ -256,7 +256,7 @@
       margin-left: 2px;
     }
 
-    input, select, textarea {
+    input:not([type="checkbox"]), select, textarea {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
       color: var(--navy);
@@ -271,9 +271,9 @@
       -webkit-appearance: none;
     }
 
-    input::placeholder, textarea::placeholder { color: var(--gray-400); }
+    input:not([type="checkbox"])::placeholder, textarea::placeholder { color: var(--gray-400); }
 
-    input:focus, select:focus, textarea:focus {
+    input:not([type="checkbox"]):focus, select:focus, textarea:focus {
       border-color: var(--gold);
       background: var(--white);
       box-shadow: 0 0 0 4px rgba(245,166,35,0.12);
@@ -458,11 +458,7 @@
       width: 18px;
       height: 18px;
       min-width: 18px;
-      accent-color: var(--gold);
-      background: var(--white);
-      border: 2px solid var(--gray-200);
-      border-radius: 4px;
-      padding: 0;
+      accent-color: var(--navy);
       cursor: pointer;
     }
 
@@ -540,7 +536,9 @@
     <div class="card-body">
 
       <!-- FORM -->
-      <form id="signup-form" novalidate>
+      <form id="signup-form" name="residential-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="residential-signup" />
+        <p style="display:none;"><input name="bot-field" /></p>
         <div class="form-grid">
 
           <div class="form-row-2">
@@ -667,7 +665,6 @@
     required.forEach(el => {
       if (!el.value.trim()) {
         el.style.borderColor = '#e55';
-        el.focus();
         valid = false;
       } else {
         el.style.borderColor = '';
@@ -676,13 +673,18 @@
 
     if (!valid) return;
 
-    // Hide form, show success
-    form.style.display = 'none';
-    successPanel.style.display = 'block';
-    successPanel.style.animation = 'fadeUp 0.45s ease both';
-
-    // Optional: send form data somewhere
-    // const data = new FormData(form);
-    // fetch('/your-endpoint', { method: 'POST', body: data });
+    // Submit to Netlify Forms
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .finally(() => {
+      form.style.display = 'none';
+      successPanel.style.display = 'block';
+      successPanel.style.animation = 'fadeUp 0.45s ease both';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
  
