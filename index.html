@@ -592,12 +592,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.7); padding: 60p
 <section class="hero" id="home">
   <div class="hero-slides" id="heroSlides">
     <div class="hero-slide active" style="background-image: url('/assets/images/hero-slide-1.webp')"></div>
-    <div class="hero-slide" style="background-image: url('/assets/images/hero-slide-2.webp')"></div>
-    <div class="hero-slide" style="background-image: url('/assets/images/hero-bg-secondary.webp')"></div>
-    <div class="hero-slide" style="background-image: url('/assets/images/hero-bg-main.webp')"></div>
-    <div class="hero-slide" style="background-image: url('/assets/images/hero-slide-3.webp')"></div>
-    <div class="hero-slide" style="background-image: url('/assets/images/hero-slide-4.webp')"></div>
-    <div class="hero-slide" style="background-image: url('/assets/images/hero-bg-main-2.webp')"></div>
+    <div class="hero-slide" data-bg="/assets/images/hero-slide-2.webp"></div>
+    <div class="hero-slide" data-bg="/assets/images/hero-bg-secondary.webp"></div>
+    <div class="hero-slide" data-bg="/assets/images/hero-bg-main.webp"></div>
+    <div class="hero-slide" data-bg="/assets/images/hero-slide-3.webp"></div>
+    <div class="hero-slide" data-bg="/assets/images/hero-slide-4.webp"></div>
+    <div class="hero-slide" data-bg="/assets/images/hero-bg-main-2.webp"></div>
   </div>
   <div class="hero-overlay-bottom"></div>
 
@@ -1075,13 +1075,25 @@ const slides = document.querySelectorAll('.hero-slide');
 const dots = document.querySelectorAll('.hero-dot');
 let autoTimer;
 
+function loadSlideImage(i) {
+  const s = slides[i];
+  if (!s) return;
+  const url = s.getAttribute('data-bg');
+  if (url) {
+    s.style.backgroundImage = "url('" + url + "')";
+    s.removeAttribute('data-bg');
+  }
+}
+
 function goToSlide(n) {
+  loadSlideImage(n);
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
   currentSlide = n;
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
   resetTimer();
+  loadSlideImage((currentSlide + 1) % slides.length);
 }
 
 function nextSlide() {
@@ -1093,7 +1105,20 @@ function resetTimer() {
   autoTimer = setInterval(nextSlide, 5500);
 }
 
-autoTimer = setInterval(nextSlide, 5500);
+function startHeroCarousel() {
+  loadSlideImage(1);
+  const idle = window.requestIdleCallback || function(cb){ return setTimeout(cb, 1500); };
+  idle(function() {
+    for (let i = 2; i < slides.length; i++) loadSlideImage(i);
+  });
+  autoTimer = setInterval(nextSlide, 5500);
+}
+
+if (document.readyState === 'complete') {
+  startHeroCarousel();
+} else {
+  window.addEventListener('load', startHeroCarousel, { once: true });
+}
 
 // ── FAQ ──
 function toggleFAQ(btn) {
