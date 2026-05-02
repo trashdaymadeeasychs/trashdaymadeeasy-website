@@ -1,2 +1,34 @@
-# Catch-all fallback
-/*                /index.html         200
+# Clean URL rewrites: serve the .html file when a clean URL is requested
+/about              /about.html              200
+/faq                /faq.html                200
+/contact            /contact.html            200
+/hoa                /hoa.html                200
+/multifamily        /multifamily.html        200
+/build-to-rent      /build-to-rent.html      200
+/str-operators      /str-operators.html      200
+/residential        /residential.html        200
+/builders           /builders.html           200
+/charleston-sc      /charleston-sc.html      200
+/atlanta-ga         /atlanta-ga.html         200
+/terms              /terms.html              200
+/refund-policy      /refund-policy.html      200
+/plan-policy        /plan-policy.html        200
+/signup             /signup.html             200
+
+# Permanent redirects from legacy .html URLs to clean URLs (preserves query strings by default)
+/about.html          /about               301!
+/faq.html            /faq                 301!
+/contact.html        /contact             301!
+/hoa.html            /hoa                 301!
+/multifamily.html    /multifamily         301!
+/build-to-rent.html  /build-to-rent       301!
+/str-operators.html  /str-operators       301!
+/residential.html    /residential         301!
+/builders.html       /builders            301!
+/charleston-sc.html  /charleston-sc       301!
+/atlanta-ga.html     /atlanta-ga          301!
+/terms.html          /terms               301!
+/refund-policy.html  /refund-policy       301!
+/plan-policy.html    /plan-policy         301!
+/signup.html         /signup              301!
+/index.html          /                    301!
