@@ -3,6 +3,55 @@
 <head>
   <!-- Sentry -->
   <script src="https://js.sentry-cdn.com/9411b46affcf87ad1434eb82b7a4c82d.min.js" crossorigin="anonymous"></script>
+  <script>
+    window.sentryOnLoad = function () {
+      var host = window.location.hostname;
+      var env = 'production';
+      if (host === 'localhost' || host === '127.0.0.1') env = 'development';
+      else if (host.indexOf('.netlify.app') !== -1 || host.indexOf('--') !== -1) env = 'preview';
+      var releaseMeta = document.querySelector('meta[name="sentry-release"]');
+      var release = releaseMeta ? releaseMeta.getAttribute('content') : undefined;
+      Sentry.init({
+        environment: env,
+        release: release,
+        tracesSampleRate: 0,
+        ignoreErrors: [
+          'ResizeObserver loop limit exceeded',
+          'ResizeObserver loop completed with undelivered notifications.',
+          'Non-Error promise rejection captured',
+          'Script error.',
+          'Network request failed',
+          'NetworkError when attempting to fetch resource.',
+          'Failed to fetch',
+          'Load failed',
+          'TypeError: Failed to fetch',
+          'TypeError: NetworkError when attempting to fetch resource.',
+          'TypeError: cancelled',
+          'TypeError: Load failed',
+          'AbortError',
+          'top.GLOBALS',
+          'originalCreateNotification',
+          'canvas.contentDocument',
+          'MyApp_RemoveAllHighlights',
+          'atomicFindClose',
+          'fb_xd_fragment',
+          'bmi_SafeAddOnload',
+          'EBCallBackMessageReceived',
+          'conduitPage',
+          'gtag is not defined'
+        ],
+        denyUrls: [
+          /^chrome-extension:\/\//i,
+          /^moz-extension:\/\//i,
+          /^safari-(web-)?extension:\/\//i,
+          /extensions\//i,
+          /^file:\/\//i,
+          /webappstoolbarba\.texthelp\.com\//i,
+          /metrics\.itunes\.apple\.com\.edgesuite\.net\//i
+        ]
+      });
+    };
+  </script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LK2SXYGSGE"></script>
   <script>
