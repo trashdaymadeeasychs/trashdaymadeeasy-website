@@ -462,7 +462,7 @@ section { padding: 88px 32px; }
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: #b8760a;
+  color: #8c5e00;
   margin-bottom: 14px;
 }
 .section-title {
@@ -827,7 +827,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
 .footer-brand .footer-logo { display: block; margin-bottom: 14px; }
 .footer-brand p { font-size: .9rem; line-height: 1.72; max-width: 280px; }
 .footer-brand address { font-style: normal; font-size: .9rem; margin-top: 16px; line-height: 1.85; }
-.footer-col h4 {
+.footer-col h3 {
   color: var(--white);
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
@@ -1455,12 +1455,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
       <div class="step">
         <div class="step-num">2</div>
         <h3>We Build Your Service Plan</h3>
-        <p>We configure your schedule, routing, and service type, whether Doorstep-to-Dumpster, curbside, turnover, or a combination.</p>
+        <p>We configure your schedule, routing, and service type — Doorstep-to-Dumpster, curbside, turnover, or a combination. One call or email is usually all it takes.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <h3>Service Begins</h3>
-        <p>Our team executes on schedule, every night. Photo verification gives you the accountability to confirm every visit.</p>
+        <p>Your service launches — most properties go live within 3–5 business days. Our team runs on your schedule, every night, with photo confirmation on every visit.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
@@ -1657,20 +1657,20 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
       </div>
 
       <div class="footer-col">
-        <h4>Who We Serve</h4>
+        <h3>Who We Serve</h3>
         <a href="/multifamily">Multifamily Properties</a>
         <a href="/build-to-rent">Build-to-Rent</a>
         <a href="/str-operators">STR Operators</a>
         <a href="/hoa">HOA Communities</a>
         <a href="/residential">Residential</a>
         <a href="/builders">Builders</a>
-        <h4 style="margin-top:20px;">Service Areas</h4>
+        <h3 style="margin-top:20px;">Service Areas</h3>
         <a href="/charleston-sc">Charleston, SC</a>
         <a href="/atlanta-ga">Atlanta, GA</a>
       </div>
 
       <div class="footer-col">
-        <h4>Company</h4>
+        <h3>Company</h3>
         <a href="/about">About Us</a>
         <a href="/about#bio">Owner Bio</a>
         <a href="/faq">FAQ</a>
@@ -1890,6 +1890,25 @@ if (document.readyState === 'complete') {
 } else {
   window.addEventListener('load', startHeroCarousel, { once: true });
 }
+
+// ── HERO FORM: property-type confirmation ──
+(function() {
+  var sel = document.querySelector('.hero-form select[name="property_type"]');
+  var sub = document.querySelector('.hero-form-sub');
+  if (!sel || !sub) return;
+  var msgs = {
+    multifamily: 'We serve apartment communities in Charleston SC and Atlanta GA.',
+    btr: 'We serve BTR portfolios with consistent service across every home.',
+    str: 'We keep STR properties guest-ready between every stay.',
+    hoa: 'We partner with HOA communities to offer valet trash as an amenity.',
+    residential: 'Backdoor-to-Curb bin valet for select Charleston SC homeowners.',
+    other: "We’ll reach out within one business day."
+  };
+  var defaultMsg = sub.textContent;
+  sel.addEventListener('change', function() {
+    sub.textContent = msgs[sel.value] || defaultMsg;
+  });
+})();
 
 // ── FAQ ──
 function toggleFAQ(btn) {
