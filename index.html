@@ -351,8 +351,19 @@ nav {
 }
 .btn-phone-link:hover { background: var(--accent); color: var(--navy-dark); }
 
-/* Carousel dots */
-.hero-dots { display: flex; gap: 8px; position: absolute; bottom: 130px; left: 32px; z-index: 4; }
+/* Carousel controls */
+.hero-controls { display: flex; gap: 12px; align-items: center; position: absolute; bottom: 130px; left: 32px; z-index: 4; }
+.hero-dots { display: flex; gap: 8px; }
+.hero-pause {
+  width: 26px; height: 26px;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; cursor: pointer; padding: 0; flex-shrink: 0;
+  transition: background .2s;
+}
+.hero-pause:hover { background: rgba(255,255,255,.32); }
 .hero-dot {
   width: 8px; height: 8px;
   border-radius: 50%;
@@ -451,7 +462,7 @@ section { padding: 88px 32px; }
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #b8760a;
   margin-bottom: 14px;
 }
 .section-title {
@@ -575,7 +586,7 @@ section { padding: 88px 32px; }
 
 /* ── OUTCOMES / DIFFERENTIATORS ── */
 .outcomes { background: var(--navy-dark); }
-.outcomes .section-label { color: rgba(245,166,35,.8); }
+.outcomes .section-label { color: var(--accent); }
 .outcomes .section-title { color: var(--white); }
 .outcomes .section-sub { color: rgba(255,255,255,.6); }
 .differentiators {
@@ -814,8 +825,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
 .footer-inner { max-width: 1200px; margin: auto; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
 .footer-brand .footer-logo { display: block; margin-bottom: 14px; }
-.footer-brand p { font-size: .87rem; line-height: 1.72; max-width: 280px; }
-.footer-brand address { font-style: normal; font-size: .82rem; margin-top: 16px; line-height: 1.85; }
+.footer-brand p { font-size: .9rem; line-height: 1.72; max-width: 280px; }
+.footer-brand address { font-style: normal; font-size: .9rem; margin-top: 16px; line-height: 1.85; }
 .footer-col h4 {
   color: var(--white);
   font-family: 'DM Sans', sans-serif;
@@ -829,7 +840,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
   display: block;
   color: rgba(255,255,255,.55);
   text-decoration: none;
-  font-size: .87rem;
+  font-size: .9rem;
   padding: 4px 0;
   transition: color .2s;
 }
@@ -869,8 +880,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
   flex-wrap: wrap;
   gap: 12px;
 }
-.footer-bottom p { font-size: .8rem; }
-.footer-bottom a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .8rem; }
+.footer-bottom p { font-size: .9rem; }
+.footer-bottom a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; }
 .footer-bottom a:hover { color: var(--accent); }
 .footer-badge {
   background: rgba(245,166,35,.12);
@@ -881,6 +892,13 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
   padding: 4px 12px;
   border-radius: 20px;
 }
+
+/* ── FORM VALIDATION ── */
+.input-error { border-color: #dc2626 !important; background: #fff8f8 !important; }
+.field-error { display: block; font-size: .78rem; color: #dc2626; margin-top: 3px; margin-bottom: 4px; }
+.form-row .field-error { grid-column: 1 / -1; }
+.form-submit-error { background: #fff5f5; border: 1px solid #fca5a5; border-radius: 6px; padding: 12px 14px; font-size: .87rem; color: #991b1b; margin-bottom: 14px; }
+.btn-loading { opacity: .65; pointer-events: none; }
 
 /* ── FAQ (used on /faq page) ── */
 .faq { background: var(--off-white); }
@@ -924,7 +942,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
   section { padding: 64px 20px; }
   .nav-inner { padding: 0 20px; }
   .hero-inner { padding: 56px 20px 100px; }
-  .hero-dots { bottom: 112px; left: 20px; }
+  .hero-controls { bottom: 112px; left: 20px; }
   .hero-form-card { padding: 24px 20px; }
   .footer-grid { grid-template-columns: 1fr; }
   .contact-form .form-row { grid-template-columns: 1fr; }
@@ -1078,14 +1096,19 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
   </div>
   <div class="hero-overlay-bottom"></div>
 
-  <div class="hero-dots" id="heroDots">
-    <button class="hero-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
-    <button class="hero-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
-    <button class="hero-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-    <button class="hero-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
-    <button class="hero-dot" onclick="goToSlide(4)" aria-label="Slide 5"></button>
-    <button class="hero-dot" onclick="goToSlide(5)" aria-label="Slide 6"></button>
-    <button class="hero-dot" onclick="goToSlide(6)" aria-label="Slide 7"></button>
+  <div class="hero-controls">
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+      <button class="hero-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+      <button class="hero-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+      <button class="hero-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+      <button class="hero-dot" onclick="goToSlide(4)" aria-label="Slide 5"></button>
+      <button class="hero-dot" onclick="goToSlide(5)" aria-label="Slide 6"></button>
+      <button class="hero-dot" onclick="goToSlide(6)" aria-label="Slide 7"></button>
+    </div>
+    <button class="hero-pause" id="heroPause" onclick="togglePause()" aria-label="Pause slideshow">
+      <svg width="10" height="12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z" clip-rule="evenodd"/></svg>
+    </button>
   </div>
 
   <div class="hero-inner">
@@ -1541,7 +1564,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
     <div class="divider"></div>
     <p class="section-sub">Tell us about your property or portfolio and we'll get back to you with a custom service plan and pricing.</p>
     <div class="contact-grid">
-      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleContactForm(event)">
         <input type="hidden" name="form-name" value="contact" />
         <p style="display:none"><input name="bot-field" /></p>
         <div class="form-row">
@@ -1688,20 +1711,83 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
 </footer>
 
 <script>
-// ── HERO FORM ──
-function handleHeroForm(e) {
-  e.preventDefault();
-  var form = e.target;
+// ── FORM VALIDATION HELPERS ──
+function getFieldError(field) {
+  var val = field.value.trim();
+  if (field.required && !val) return 'This field is required.';
+  if (field.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) return 'Enter a valid email address.';
+  if (field.type === 'tel' && val && val.replace(/\D/g, '').length < 7) return 'Enter a valid phone number.';
+  return null;
+}
+
+function markFieldError(field, msg) {
+  field.classList.add('input-error');
+  var span = document.createElement('span');
+  span.className = 'field-error';
+  span.textContent = msg;
+  field.after(span);
+}
+
+function clearFormErrors(form) {
+  form.querySelectorAll('.input-error').forEach(function(el) { el.classList.remove('input-error'); });
+  form.querySelectorAll('.field-error, .form-submit-error').forEach(function(el) { el.remove(); });
+}
+
+function validateForm(form) {
+  clearFormErrors(form);
+  var valid = true;
+  form.querySelectorAll('input:not([type=hidden]):not([name=bot-field]), select, textarea').forEach(function(field) {
+    var err = getFieldError(field);
+    if (err) { markFieldError(field, err); valid = false; }
+  });
+  return valid;
+}
+
+function showFormSubmitError(form, msg) {
+  var div = document.createElement('div');
+  div.className = 'form-submit-error';
+  div.textContent = msg;
+  form.prepend(div);
+}
+
+function submitToNetlify(form, btn, onSuccess) {
+  var origText = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.classList.add('btn-loading');
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(new FormData(form)).toString()
   })
-    .then(function() {
-      form.style.display = 'none';
-      document.getElementById('heroFormSuccess').style.display = 'block';
-    })
-    .catch(function() { form.submit(); });
+  .then(function() { onSuccess(); })
+  .catch(function() {
+    btn.textContent = origText;
+    btn.classList.remove('btn-loading');
+    showFormSubmitError(form, 'Submission failed — please call 843-955-3132 or try again.');
+  });
+}
+
+// ── HERO FORM ──
+function handleHeroForm(e) {
+  e.preventDefault();
+  var form = e.target;
+  if (!validateForm(form)) return;
+  var btn = form.querySelector('button[type=submit]');
+  submitToNetlify(form, btn, function() {
+    form.style.display = 'none';
+    document.getElementById('heroFormSuccess').style.display = 'block';
+  });
+}
+
+// ── CONTACT FORM ──
+function handleContactForm(e) {
+  e.preventDefault();
+  var form = e.target;
+  if (!validateForm(form)) return;
+  var btn = form.querySelector('button[type=submit]');
+  submitToNetlify(form, btn, function() {
+    form.innerHTML = '<div style="background:#d1fae5;border:1px solid #6ee7b7;border-radius:8px;padding:28px;text-align:center;color:#065f46;font-weight:600;font-size:.95rem;">Got it — we’ll reach out within one business day.</div>';
+  });
 }
 
 // ── MOBILE NAV ──
@@ -1740,15 +1826,13 @@ var currentSlide = 0;
 var slides = document.querySelectorAll('.hero-slide');
 var dots = document.querySelectorAll('.hero-dot');
 var autoTimer;
+var userPaused = false;
 
 function loadSlideImage(i) {
   var s = slides[i];
   if (!s) return;
   var url = s.getAttribute('data-bg');
-  if (url) {
-    s.style.backgroundImage = "url('" + url + "')";
-    s.removeAttribute('data-bg');
-  }
+  if (url) { s.style.backgroundImage = "url('" + url + "')"; s.removeAttribute('data-bg'); }
 }
 
 function goToSlide(n) {
@@ -1758,27 +1842,47 @@ function goToSlide(n) {
   currentSlide = n;
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
-  resetTimer();
+  if (!userPaused) resetTimer();
   loadSlideImage((currentSlide + 1) % slides.length);
 }
 
-function nextSlide() {
-  goToSlide((currentSlide + 1) % slides.length);
-}
+function nextSlide() { goToSlide((currentSlide + 1) % slides.length); }
 
 function resetTimer() {
   clearInterval(autoTimer);
-  autoTimer = setInterval(nextSlide, 5500);
+  if (!userPaused) autoTimer = setInterval(nextSlide, 7000);
+}
+
+function togglePause() {
+  userPaused = !userPaused;
+  var btn = document.getElementById('heroPause');
+  if (userPaused) {
+    clearInterval(autoTimer);
+    if (btn) {
+      btn.setAttribute('aria-label', 'Play slideshow');
+      btn.innerHTML = '<svg width="10" height="12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z"/></svg>';
+    }
+  } else {
+    autoTimer = setInterval(nextSlide, 7000);
+    if (btn) {
+      btn.setAttribute('aria-label', 'Pause slideshow');
+      btn.innerHTML = '<svg width="10" height="12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z" clip-rule="evenodd"/></svg>';
+    }
+  }
 }
 
 function startHeroCarousel() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   loadSlideImage(1);
   var idle = window.requestIdleCallback || function(cb) { return setTimeout(cb, 1500); };
-  idle(function() {
-    for (var i = 2; i < slides.length; i++) loadSlideImage(i);
-  });
-  autoTimer = setInterval(nextSlide, 5500);
+  idle(function() { for (var i = 2; i < slides.length; i++) loadSlideImage(i); });
+  autoTimer = setInterval(nextSlide, 7000);
+
+  var heroEl = document.querySelector('.hero');
+  if (heroEl && window.matchMedia('(hover: hover)').matches) {
+    heroEl.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+    heroEl.addEventListener('mouseleave', function() { if (!userPaused) autoTimer = setInterval(nextSlide, 7000); });
+  }
 }
 
 if (document.readyState === 'complete') {
@@ -1793,10 +1897,7 @@ function toggleFAQ(btn) {
   var isOpen = answer.classList.contains('open');
   document.querySelectorAll('.faq-a').forEach(function(a) { a.classList.remove('open'); });
   document.querySelectorAll('.faq-q').forEach(function(b) { b.classList.remove('open'); });
-  if (!isOpen) {
-    answer.classList.add('open');
-    btn.classList.add('open');
-  }
+  if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
 }
 </script>
 </body>
