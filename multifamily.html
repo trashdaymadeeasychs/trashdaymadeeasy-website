@@ -113,7 +113,8 @@ nav{background:var(--white);position:sticky;top:0;z-index:200;border-bottom:1px 
 .page-hero p{font-size:1.05rem;max-width:600px;margin:0 auto;line-height:1.7;}
 section{padding:80px 32px;}
 .section-inner{max-width:1100px;margin:auto;}
-.section-label{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-label{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b8760a;margin-bottom:12px;}
+.bg-dark .section-label{color:var(--accent);}
 .section-title{font-size:clamp(1.8rem,3vw,2.4rem);color:var(--navy);line-height:1.2;margin-bottom:16px;}
 .section-title em{font-style:normal;color:var(--accent);}
 .section-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:640px;}
@@ -133,8 +134,7 @@ section{padding:80px 32px;}
 .auto-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px;}
 /* cards */
 .card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 24px;}
-.card.accent-top{border-top:3px solid var(--accent);}
-.card.navy-top{border-top:3px solid var(--navy-light);}
+.card.accent-top-removed,.card.navy-top{/* side-stripe removed */}
 .card h3{font-size:1.1rem;color:var(--navy);margin-bottom:10px;}
 .card p{font-size:.88rem;color:var(--muted);line-height:1.65;}
 .card-icon{font-size:1.8rem;margin-bottom:14px;}
@@ -188,7 +188,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px;}
 .footer-brand p{font-size:.88rem;line-height:1.7;max-width:280px;margin-top:14px;}
 .footer-brand address{font-style:normal;font-size:.82rem;margin-top:16px;line-height:1.8;}
-.footer-col h4{color:var(--white);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+.footer-col h3{color:var(--white);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
 .footer-col a{display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:.87rem;padding:4px 0;transition:color .2s;}
 .footer-col a:hover{color:var(--accent);}
 .footer-merchant{border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);padding:20px 0;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
@@ -200,8 +200,19 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
 .footer-bottom a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;}
 .footer-bottom a:hover{color:var(--accent);}
 .footer-badge{background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.3);color:var(--accent);font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:20px;}
-@media(max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.two-col,.three-col,.four-col{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){section{padding:60px 20px;}.nav-inner{padding:0 20px;}.page-hero{padding:56px 20px 48px;}.two-col,.three-col,.four-col,.auto-col{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}}
+/* differentiators */
+.mf-differentiators{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);margin-top:48px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;}
+.mf-diff-item{padding:40px 36px;background:rgba(255,255,255,.04);}
+.mf-diff-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--accent);opacity:.22;line-height:1;margin-bottom:18px;}
+.mf-diff-item h3{font-size:1.2rem;color:var(--white);margin-bottom:12px;line-height:1.3;}
+.mf-diff-item p{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.72;}
+/* form validation */
+.input-error{border-color:#dc2626!important;background:#fff8f8!important;}
+.field-error{display:block;font-size:.78rem;color:#dc2626;margin-top:3px;}
+.form-submit-error{background:#fff5f5;border:1px solid #fca5a5;border-radius:6px;padding:12px 14px;font-size:.87rem;color:#991b1b;margin-bottom:14px;}
+.btn-loading{opacity:.65;pointer-events:none;}
+@media(max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.two-col,.three-col,.four-col{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.mf-differentiators{grid-template-columns:1fr;}}
+@media(max-width:600px){section{padding:60px 20px;}.nav-inner{padding:0 20px;}.page-hero{padding:56px 20px 48px;}.two-col,.three-col,.four-col,.auto-col{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.mf-diff-item{padding:32px 24px;}}
 
 /* --- multifamily hero/testimonials/cta update --- */
 .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(340px,.8fr);gap:32px;align-items:center;text-align:left;}
@@ -853,21 +864,27 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
     <div class="tdme-quote-card">
       <h2 class="tdme-quote-title">Get a Property Quote</h2>
 
-      <form class="tdme-quote-form">
-        <div class="tdme-form-grid">
+      <form class="tdme-quote-form" name="multifamily-quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleQuoteForm(event)">
+        <input type="hidden" name="form-name" value="multifamily-quote" />
+        <p style="display:none"><input name="bot-field" /></p>
+        <div id="quoteFormSuccess" style="display:none;text-align:center;padding:20px 0;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#0d2b45;font-weight:700;margin-bottom:8px;">Got it — we'll be in touch.</div>
+          <p style="font-size:.9rem;color:#5a7087;">We typically respond within one business day.</p>
+        </div>
+        <div class="tdme-form-grid" id="quoteFormFields">
           <div class="tdme-form-group">
-            <label for="your-name">Your Name</label>
-            <input type="text" id="your-name" name="your-name" placeholder="Your Name" />
+            <label for="your-name">Your Name *</label>
+            <input type="text" id="your-name" name="your-name" placeholder="Your Name" required />
           </div>
 
           <div class="tdme-form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" />
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Email" required />
           </div>
 
           <div class="tdme-form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="Phone" />
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone" required />
           </div>
 
           <div class="tdme-form-group">
@@ -876,17 +893,17 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
           </div>
 
           <div class="tdme-form-group">
-            <label for="property-city">Property City</label>
-            <input type="text" id="property-city" name="property-city" placeholder="Property City" />
+            <label for="property-city">Property City *</label>
+            <input type="text" id="property-city" name="property-city" placeholder="Charleston or Atlanta" required />
           </div>
 
           <div class="tdme-form-group">
             <label for="unit-count">Unit Count</label>
-            <input type="text" id="unit-count" name="unit-count" placeholder="Unit Count" />
+            <input type="text" id="unit-count" name="unit-count" placeholder="Approx. number of units" />
           </div>
         </div>
 
-        <button type="submit" class="tdme-quote-button">Get Pricing</button>
+        <button type="submit" class="tdme-quote-button">Get Pricing &rarr;</button>
       </form>
     </div>
   </div>
@@ -924,7 +941,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
         </div>
       </div>
       <div>
-        <div class="card accent-top">
+        <div class="card accent-top-removed">
           <h3 style="font-size:1.2rem;margin-bottom:16px;">What's Included</h3>
           <ul class="check-list">
             <li>Doorstep-to-Dumpster collection on your schedule</li>
@@ -943,19 +960,26 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
 </section>
 
 <section class="bg-dark">
-  <div class="section-inner text-center">
-    <div class="section-label">Outcomes for Property Managers</div>
-    <h2 class="section-title">The Results That <em>Matter</em></h2>
-    <div class="divider divider-center"></div>
-    <div class="four-col">
-      <div class="outcome-card"><div class="num">📉</div><p>Fewer resident complaints about trash in hallways, common areas, and dumpster zones</p></div>
-      <div class="outcome-card"><div class="num">⭐</div><p>Better resident experience &mdash; a premium amenity tenants notice and value at renewal time</p></div>
-      <div class="outcome-card"><div class="num">⚙️</div><p>Less operational burden on your onsite staff &mdash; one less thing your team has to manage nightly</p></div>
-      <div class="outcome-card"><div class="num">✅</div><p>Photo-verified accountability every visit &mdash; documentation you can share with ownership</p></div>
-      <div class="outcome-card"><div class="num">🏆</div><p>Cleaner communities and common areas &mdash; consistently maintained, not just on inspection day</p></div>
-      <div class="outcome-card"><div class="num">📈</div><p>Competitive amenity advantage in your rental market without increasing internal headcount</p></div>
-      <div class="outcome-card"><div class="num">🔄</div><p>Faster unit turns &mdash; bulk and move-out waste handled as part of your make-ready process</p></div>
-      <div class="outcome-card"><div class="num">📊</div><p>Consistent standards across every property in your portfolio as you scale</p></div>
+  <div class="section-inner">
+    <div class="section-label">Why Property Managers Choose Us</div>
+    <h2 class="section-title">Three things we do <em>differently.</em></h2>
+    <div class="divider"></div>
+    <div class="mf-differentiators">
+      <div class="mf-diff-item">
+        <div class="mf-diff-num" aria-hidden="true">01</div>
+        <h3>Ownership-ready documentation on every visit.</h3>
+        <p>Photo verification isn't a checkbox — it's how we run the service. Every pickup is confirmed with a photo your team can share with ownership or pull when a resident disputes a missed night.</p>
+      </div>
+      <div class="mf-diff-item">
+        <div class="mf-diff-num" aria-hidden="true">02</div>
+        <h3>Residents stop bringing it up.</h3>
+        <p>When valet trash runs reliably, it becomes invisible — which is exactly the goal. Fewer complaint tickets, fewer staff interruptions, fewer negative reviews that mention trash. Set it up once and it runs.</p>
+      </div>
+      <div class="mf-diff-item">
+        <div class="mf-diff-num" aria-hidden="true">03</div>
+        <h3>One vendor, every property in your portfolio.</h3>
+        <p>Whether you manage 40 units or 400 across multiple communities, every property gets the same standard. Consistent scheduling, consistent documentation, consistent execution — no property gets the B-team.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -966,13 +990,13 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
     <h2 class="section-title">Serving Two <em>Major Markets</em></h2>
     <div class="divider"></div>
     <div class="two-col">
-      <div class="card accent-top">
+      <div class="card accent-top-removed">
         <h3>Charleston, SC</h3>
         <p style="color:var(--accent);font-weight:700;font-size:.88rem;margin-bottom:12px;">Full Multifamily Market</p>
         <p>Serving apartment communities across the greater Charleston metro — from North Charleston and West Ashley to Mount Pleasant, Summerville, and Daniel Island.</p>
         <div class="tag-row"><span class="tag">North Charleston</span><span class="tag">West Ashley</span><span class="tag">Mount Pleasant</span><span class="tag">Summerville</span><span class="tag">Daniel Island</span><span class="tag">James Island</span></div>
       </div>
-      <div class="card accent-top">
+      <div class="card accent-top-removed">
         <h3>Atlanta, GA</h3>
         <p style="color:var(--accent);font-weight:700;font-size:.88rem;margin-bottom:12px;">Full Multifamily Market</p>
         <p>Serving apartment communities and multifamily operators throughout the Atlanta metro, including Buckhead, Midtown, Sandy Springs, Alpharetta, Marietta, and Decatur.</p>
@@ -999,7 +1023,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
   <h2>Ready to Discuss Your Property?</h2>
   <p>Tell us your unit count, markets, and collection schedule — we'll put together a service plan and pricing built for your community.</p>
   <div class="cta-btns">
-    <a href="tel:8439553132" class="btn-dark">&#128222;&nbsp; Call 843-955-3132</a>
+    <a href="tel:8439553132" class="btn-dark">Call 843-955-3132</a>
     <a href="/contact" class="btn-outline-dark">Request a Property Quote</a>
   </div>
 </div>
@@ -1027,7 +1051,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
       </div>
 
       <div class="footer-col">
-        <h4>Who We Serve</h4>
+        <h3>Who We Serve</h3>
         <a href="/multifamily">Multifamily Properties</a>
         <a href="/build-to-rent">Build-to-Rent</a>
         <a href="/str-operators">STR Operators</a>
@@ -1036,7 +1060,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
       </div>
 
       <div class="footer-col">
-        <h4>Service Types</h4>
+        <h3>Service Types</h3>
         <a href="/multifamily">Doorstep-to-Dumpster</a>
         <a href="/build-to-rent">Curbside Management</a>
         <a href="/str-operators">Turnover Support</a>
@@ -1045,7 +1069,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
       </div>
 
       <div class="footer-col">
-        <h4>Company</h4>
+        <h3>Company</h3>
         <a href="/about">About Us</a>
         <a href="/about#bio">Owner Bio</a>
         <a href="/faq">FAQ</a>
@@ -1067,4 +1091,52 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
       </div>
     </div>
   </div>
-</footer><script>function toggleMenu(){document.getElementById("mobileMenu").classList.toggle("open");}</script></body></html>
+</footer><script>
+function toggleMenu(){document.getElementById("mobileMenu").classList.toggle("open");}
+
+function handleQuoteForm(e) {
+  e.preventDefault();
+  var form = e.target;
+  form.querySelectorAll('.input-error').forEach(function(el){el.classList.remove('input-error');});
+  form.querySelectorAll('.field-error,.form-submit-error').forEach(function(el){el.remove();});
+  var valid = true;
+  form.querySelectorAll('input[required]').forEach(function(field) {
+    var val = field.value.trim();
+    var err = null;
+    if (!val) err = 'Required.';
+    else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) err = 'Enter a valid email.';
+    else if (field.type === 'tel' && val.replace(/\D/g,'').length < 7) err = 'Enter a valid phone number.';
+    if (err) {
+      field.classList.add('input-error');
+      var span = document.createElement('span');
+      span.className = 'field-error';
+      span.textContent = err;
+      field.after(span);
+      valid = false;
+    }
+  });
+  if (!valid) return;
+  var btn = form.querySelector('.tdme-quote-button');
+  var origText = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.classList.add('btn-loading');
+  fetch('/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(new FormData(form)).toString()
+  })
+  .then(function() {
+    document.getElementById('quoteFormFields').style.display = 'none';
+    btn.style.display = 'none';
+    document.getElementById('quoteFormSuccess').style.display = 'block';
+  })
+  .catch(function() {
+    btn.textContent = origText;
+    btn.classList.remove('btn-loading');
+    var div = document.createElement('div');
+    div.className = 'form-submit-error';
+    div.textContent = 'Submission failed — please call 843-955-3132 or try again.';
+    form.prepend(div);
+  });
+}
+</script></body></html>

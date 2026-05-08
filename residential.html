@@ -113,7 +113,7 @@ nav{background:var(--white);position:sticky;top:0;z-index:200;border-bottom:1px 
 .page-hero p{font-size:1.05rem;max-width:600px;margin:0 auto;line-height:1.7;}
 section{padding:80px 32px;}
 .section-inner{max-width:1100px;margin:auto;}
-.section-label{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-label{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b8760a;margin-bottom:12px;}.bg-dark .section-label{color:var(--accent);}
 .section-title{font-size:clamp(1.8rem,3vw,2.4rem);color:var(--navy);line-height:1.2;margin-bottom:16px;}
 .section-title em{font-style:normal;color:var(--accent);}
 .section-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:640px;}
@@ -133,11 +133,11 @@ section{padding:80px 32px;}
 .auto-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px;}
 /* cards */
 .card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 24px;}
-.card.accent-top{border-top:3px solid var(--accent);}
-.card.navy-top{border-top:3px solid var(--navy-light);}
+.card.accent-top{/* side-stripe removed */}
+.card.navy-top{/* side-stripe removed */}
 .card h3{font-size:1.1rem;color:var(--navy);margin-bottom:10px;}
 .card p{font-size:.88rem;color:var(--muted);line-height:1.65;}
-.card-icon{font-size:1.8rem;margin-bottom:14px;}
+.card-icon{margin-bottom:14px;color:var(--accent);}
 .check-list{list-style:none;margin-top:14px;}
 .check-list li{font-size:.88rem;color:var(--navy-dark);padding:4px 0;display:flex;gap:8px;line-height:1.5;}
 .check-list li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;}
@@ -188,7 +188,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px;}
 .footer-brand p{font-size:.88rem;line-height:1.7;max-width:280px;margin-top:14px;}
 .footer-brand address{font-style:normal;font-size:.82rem;margin-top:16px;line-height:1.8;}
-.footer-col h4{color:var(--white);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+.footer-col h3{color:var(--white);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
 .footer-col a{display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:.87rem;padding:4px 0;transition:color .2s;}
 .footer-col a:hover{color:var(--accent);}
 .footer-merchant{border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);padding:20px 0;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
@@ -280,9 +280,9 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
       <div>
         <p style="font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:20px;">Our residential service was born out of real experience — as parents with young children, we know how easily trash day can slip through the cracks during a hectic week. We built this service for everyone who needs one less thing to manage.</p>
         <div class="three-col" style="margin-top:0;">
-          <div class="card accent-top"><div class="card-icon">👶</div><h3>Busy Families</h3><p>Three kids, two jobs, zero time to remember bin day. We've got you covered every week without fail.</p></div>
-          <div class="card accent-top"><div class="card-icon">🦽</div><h3>Seniors & Mobility</h3><p>No more struggling with heavy bins in the dark or bad weather. Reliable help that shows up every week.</p></div>
-          <div class="card accent-top"><div class="card-icon">✈️</div><h3>Frequent Travelers</h3><p>Away on business or vacation? Your bins still go out and come back in — whether you're home or not.</p></div>
+          <div class="card"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div><h3>Busy Families</h3><p>Three kids, two jobs, zero time to remember bin day. We've got you covered every week without fail.</p></div>
+          <div class="card"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg></div><h3>Seniors & Mobility</h3><p>No more struggling with heavy bins in the dark or bad weather. Reliable help that shows up every week.</p></div>
+          <div class="card"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"/></svg></div><h3>Frequent Travelers</h3><p>Away on business or vacation? Your bins still go out and come back in — whether you're home or not.</p></div>
         </div>
       </div>
       <div>
@@ -304,8 +304,8 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
             <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Annual billing available &mdash; get one month free</div>
           </div>
           <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
-            <a href="/contact" class="btn-primary" style="text-align:center;font-size:1rem;">&#9989;&nbsp; Start My Service</a>
-            <a href="https://buy.stripe.com/bJe8wR3DG1zXghI8fP4ZG00" target="_blank" rel="noopener" style="display:block;text-align:center;background:var(--navy);color:var(--white);padding:14px 28px;border-radius:6px;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .2s;">&#128179;&nbsp; Pay $20 Account Setup Fee</a>
+            <a href="/contact" class="btn-primary" style="text-align:center;font-size:1rem;">Start My Service</a>
+            <a href="https://buy.stripe.com/bJe8wR3DG1zXghI8fP4ZG00" target="_blank" rel="noopener" style="display:block;text-align:center;background:var(--navy);color:var(--white);padding:14px 28px;border-radius:6px;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .2s;">Pay $20 Account Setup Fee</a>
             <p style="font-size:.78rem;color:var(--muted);text-align:center;margin:0;">The $20 setup fee is a one-time charge to activate your account. Your first month of service begins after setup is complete.</p>
           </div>
         </div>
@@ -333,7 +333,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
         <a href="/contact" class="btn-primary">Get Started</a>
       </div>
       <div class="card" style="border-left:4px solid var(--accent);padding:36px;text-align:center;">
-        <div style="font-size:3rem;margin-bottom:16px;">♻️</div>
+        <div style="margin-bottom:16px;color:var(--accent);"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/></svg></div>
         <h3 style="font-size:1.4rem;margin-bottom:12px;color:var(--navy);">On-Demand Service</h3>
         <div style="height:3px;background:linear-gradient(90deg,var(--accent),transparent);max-width:60px;margin:0 auto 20px;border-radius:2px;"></div>
         <p style="font-size:.95rem;color:var(--muted);line-height:1.7;">Need help sorting your waste and recycling? No problem, our team will help get your waste and recycling sorted and ready for pickup.</p>
@@ -369,12 +369,12 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
     <div class="divider divider-center"></div>
     <p class="section-sub">Our residential bin valet service is available across the greater Charleston SC area. Check if your neighborhood is covered.</p>
     <div class="auto-col" style="margin-top:40px;">
-      <div class="card accent-top text-center"><div class="card-icon">🏙️</div><h3>Charleston</h3><p>Downtown, Harleston Village, South of Broad, Hampton Park, and surrounding neighborhoods.</p></div>
-      <div class="card accent-top text-center"><div class="card-icon">🏭</div><h3>North Charleston</h3><p>Our headquarters city — full residential coverage including Hanahan, Park Circle, and nearby areas.</p></div>
-      <div class="card accent-top text-center"><div class="card-icon">🌊</div><h3>Mount Pleasant</h3><p>Old Village, I'On, Dunes West, Rivertowne, and communities throughout the peninsula.</p></div>
-      <div class="card accent-top text-center"><div class="card-icon">🌳</div><h3>Summerville</h3><p>Cane Bay, Nexton, Pine Forest, Carnes Crossroads, and surrounding Dorchester County communities.</p></div>
-      <div class="card accent-top text-center"><div class="card-icon">🌉</div><h3>West Ashley</h3><p>Avondale, Bees Ferry, Shadowmoss, Grand Oaks, and neighborhoods along Savannah Highway.</p></div>
-      <div class="card accent-top text-center"><div class="card-icon">🏖️</div><h3>Isle of Palms</h3><p>Wild Dunes, IOP residential neighborhoods, and beachfront communities along the barrier island.</p></div>
+      <div class="card text-center"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><h3>Charleston</h3><p>Downtown, Harleston Village, South of Broad, Hampton Park, and surrounding neighborhoods.</p></div>
+      <div class="card text-center"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><h3>North Charleston</h3><p>Our headquarters city — full residential coverage including Hanahan, Park Circle, and nearby areas.</p></div>
+      <div class="card text-center"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><h3>Mount Pleasant</h3><p>Old Village, I'On, Dunes West, Rivertowne, and communities throughout the peninsula.</p></div>
+      <div class="card text-center"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><h3>Summerville</h3><p>Cane Bay, Nexton, Pine Forest, Carnes Crossroads, and surrounding Dorchester County communities.</p></div>
+      <div class="card text-center"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><h3>West Ashley</h3><p>Avondale, Bees Ferry, Shadowmoss, Grand Oaks, and neighborhoods along Savannah Highway.</p></div>
+      <div class="card text-center"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><h3>Isle of Palms</h3><p>Wild Dunes, IOP residential neighborhoods, and beachfront communities along the barrier island.</p></div>
     </div>
     <p style="margin-top:28px;font-size:.88rem;color:var(--muted);">Not sure if we cover your area? <a href="tel:8439553132" style="color:var(--accent);font-weight:700;">Call us at 843-955-3132</a> and we'll confirm your address.</p>
   </div>
@@ -398,7 +398,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
   <h2>Ready to Never Think About Trash Day Again?</h2>
   <p>Start your weekly bin valet service in minutes. No contracts, no hassle &mdash; just reliable pickup, every week.</p>
   <div class="cta-btns">
-    <a href="tel:8439553132" class="btn-dark">&#128222;&nbsp; Call 843-955-3132</a>
+    <a href="tel:8439553132" class="btn-dark">Call 843-955-3132</a>
     <a href="/contact" class="btn-outline-dark">Get Started Today</a>
   </div>
 </div>
@@ -416,7 +416,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
         </address>
       </div>
       <div class="footer-col">
-        <h4>Who We Serve</h4>
+        <h3>Who We Serve</h3>
         <a href="/multifamily">Multifamily Properties</a>
         <a href="/build-to-rent">Build-to-Rent</a>
         <a href="/str-operators">STR Operators</a>
@@ -424,7 +424,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
         <a href="/residential">Residential</a>
       </div>
       <div class="footer-col">
-        <h4>Service Types</h4>
+        <h3>Service Types</h3>
         <a href="/multifamily">Doorstep-to-Dumpster</a>
         <a href="/build-to-rent">Curbside Management</a>
         <a href="/str-operators">Turnover Support</a>
@@ -432,7 +432,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
         <a href="/#services">On-Demand Support</a>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h3>Company</h3>
         <a href="/about">About Us</a>
         <a href="/about#bio">Owner Bio</a>
         <a href="/faq">FAQ</a>
