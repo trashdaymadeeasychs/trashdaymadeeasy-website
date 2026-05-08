@@ -337,16 +337,19 @@ nav {
 .btn-primary:hover { background: var(--accent-lt); transform: translateY(-1px); }
 @media (prefers-reduced-motion: reduce) { .btn-primary:hover { transform: none; } }
 .btn-phone-link {
-  color: rgba(255,255,255,.75);
-  font-size: .92rem;
-  font-weight: 500;
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.3);
-  padding-bottom: 1px;
-  transition: color .2s, border-color .2s;
+  font-size: 1rem;
+  transition: background .2s, color .2s;
+  display: inline-block;
   white-space: nowrap;
 }
-.btn-phone-link:hover { color: var(--accent); border-color: var(--accent); }
+.btn-phone-link:hover { background: var(--accent); color: var(--navy-dark); }
 
 /* Carousel dots */
 .hero-dots { display: flex; gap: 8px; position: absolute; bottom: 130px; left: 32px; z-index: 4; }
@@ -1096,7 +1099,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,.65); padding: 64
         <p>Reliable doorstep, curbside, turnover, and waste management support for operators who need cleaner properties, smoother turns, and dependable execution, night after night.</p>
         <div class="hero-ctas">
           <a href="/contact" class="btn-primary">Get a Property Quote</a>
-          <a href="tel:8439553132" class="btn-phone-link">or call 843-955-3132</a>
+          <a href="tel:8439553132" class="btn-phone-link">843-955-3132</a>
         </div>
         <div class="hero-trust">
           <div class="trust-item">
