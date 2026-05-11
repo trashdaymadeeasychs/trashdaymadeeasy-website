@@ -235,78 +235,79 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/favicon-512x512.png"/>
   <meta name="theme-color" content="#0d2b45"/>
 
-  <!-- Schema Markup: ContactPage + Organization -->
+  <!-- Schema Markup: ContactPage -->
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "@id": "https://trashdaymadeeasy.com/contact#page",
-      "name": "Contact Trash Day Made Easy",
-      "description": "Get in touch with Trash Day Made Easy to request a quote, schedule a call, or learn more about valet trash and recycling services for your multifamily or residential community.",
-      "url": "https://trashdaymadeeasy.com/contact",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://trashdaymadeeasy.com/#website"
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://trashdaymadeeasy.com/contact#page",
+    "name": "Contact Trash Day Made Easy",
+    "description": "Get in touch with Trash Day Made Easy to request a quote, schedule a call, or learn more about valet trash and recycling services for your multifamily or residential community.",
+    "url": "https://trashdaymadeeasy.com/contact",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://trashdaymadeeasy.com/#website"
+    }
+  }
+  </script>
+  <!-- Schema Markup: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://trashdaymadeeasy.com/#business",
+    "name": "Trash Day Made Easy",
+    "legalName": "Trash Day Made Easy LLC",
+    "url": "https://trashdaymadeeasy.com",
+    "logo": "https://trashdaymadeeasy.com/images/logo.png",
+    "description": "Trash Day Made Easy provides professional valet trash, recycling, and bulk item removal services across Charleston, SC and Atlanta, GA for multifamily communities, build-to-rent portfolios, HOAs, senior care facilities, and residential customers.",
+    "telephone": "+18439553132",
+    "email": "info@trashdaymadeeasy.com",
+    "image": "https://trashdaymadeeasy.com/images/logo.png",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4900 O'Hear Avenue",
+      "addressLocality": "North Charleston",
+      "addressRegion": "SC",
+      "postalCode": "29405",
+      "addressCountry": "US"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+18439553132",
+        "email": "info@trashdaymadeeasy.com",
+        "availableLanguage": "English",
+        "areaServed": ["SC", "GA"]
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+18439553132",
+        "email": "info@trashdaymadeeasy.com",
+        "availableLanguage": "English"
+      }
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Schedule a Discovery Call",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://calendly.com/trashdaymadeeasy-info/30min",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
       }
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://trashdaymadeeasy.com/#business",
-      "name": "Trash Day Made Easy",
-      "legalName": "Trash Day Made Easy LLC",
-      "url": "https://trashdaymadeeasy.com",
-      "logo": "https://trashdaymadeeasy.com/images/logo.png",
-      "description": "Trash Day Made Easy provides professional valet trash, recycling, and bulk item removal services across Charleston, SC and Atlanta, GA for multifamily communities, build-to-rent portfolios, HOAs, senior care facilities, and residential customers.",
-      "telephone": "+18439553132",
-      "email": "info@trashdaymadeeasy.com",
-      "image": "https://trashdaymadeeasy.com/images/logo.png",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "4900 O'Hear Avenue",
-        "addressLocality": "North Charleston",
-        "addressRegion": "SC",
-        "postalCode": "29405",
-        "addressCountry": "US"
-      },
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "telephone": "+18439553132",
-          "email": "info@trashdaymadeeasy.com",
-          "availableLanguage": "English",
-          "areaServed": ["SC", "GA"]
-        },
-        {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "telephone": "+18439553132",
-          "email": "info@trashdaymadeeasy.com",
-          "availableLanguage": "English"
-        }
-      ],
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "name": "Schedule a Discovery Call",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://calendly.com/trashdaymadeeasy-info/30min",
-          "actionPlatform": [
-            "http://schema.org/DesktopWebPlatform",
-            "http://schema.org/MobileWebPlatform"
-          ]
-        }
-      },
-      "sameAs": [
-        "https://www.facebook.com/trashdaymadeeasy",
-        "https://www.linkedin.com/company/trash-day-made-easy/?viewAsMember=true",
-        "https://share.google/2Vv03gRuG3iGes049"
-      ]
-    }
-  ]
+    "sameAs": [
+      "https://www.facebook.com/trashdaymadeeasy",
+      "https://www.linkedin.com/company/trash-day-made-easy/?viewAsMember=true",
+      "https://share.google/2Vv03gRuG3iGes049"
+    ]
+  }
   </script>
 </head>
 <body>
