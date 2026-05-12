@@ -210,6 +210,9 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
 .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus { outline:none; border-color:var(--navy-light); }
 .contact-form textarea { resize:vertical; min-height:130px; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.discount-field { position:relative; }
+.discount-field input { padding-left:44px; }
+.discount-field .discount-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:1rem; pointer-events:none; line-height:1; }
 .submit-btn { background:var(--accent); color:var(--navy-dark); border:none; padding:15px 28px; border-radius:6px; font-family:"DM Sans",sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:background .2s; width:100%; }
 .submit-btn:hover { background:var(--accent-lt); }
 .info-cards { display:flex; flex-direction:column; gap:20px; }
@@ -377,6 +380,10 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);padding:60px 32px 
             <option value="101-300">101&ndash;300</option>
             <option value="300+">300+</option>
           </select>
+          <div class="discount-field">
+            <span class="discount-icon">🏷️</span>
+            <input type="text" name="discount_code" placeholder="Discount Code (optional)" autocomplete="off" style="text-transform:uppercase;"/>
+          </div>
           <textarea name="message" placeholder="Tell us about your property and what you need — service type, frequency, timeline, or any questions..."></textarea>
           <button type="submit" class="submit-btn">&#128231;&nbsp; Send Message</button>
         </form>
