@@ -14,6 +14,7 @@
 /refund-policy      /refund-policy.html      200
 /plan-policy        /plan-policy.html        200
 /signup             /signup.html             200
+/residential-start  /residential-start.html  200
 
 # Permanent redirects from legacy .html URLs to clean URLs (preserves query strings by default)
 /about.html          /about               301!
@@ -30,5 +31,6 @@
 /terms.html          /terms               301!
 /refund-policy.html  /refund-policy       301!
 /plan-policy.html    /plan-policy         301!
-/signup.html         /signup              301!
-/index.html          /                    301!
+/signup.html              /signup              301!
+/residential-start.html   /residential-start   301!
+/index.html               /                    301!
